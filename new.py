@@ -11,7 +11,7 @@ for year in years:
 #Ejer 2
 
 """
-p=re.compile('(^|\s)(E{0,1})(\s|[-]|)([0-9]{4})(\s|[-]|)([A-Z]{3})([^A-Z]|$)')
+p=re.compile('\\b(E{0,1})(\s|[-]|)([0-9]{4})(\s|[-]|)([A-Z]{3})\\b')
 a=input()
 licenses=p.findall(a)
 for l in licenses:
@@ -49,7 +49,7 @@ print(a)"""
 
 """#Ejer 4
 
-p=re.compile('[^|[^a-z]([a-z])\.([a-z]{2,})\.([0-9]{4})(@alumnos.urjc.es)|([a-z]{1,})\.([a-z]{2,})(@urjc.es)($|[^a-z])')
+p=re.compile('\\b([a-z])\.([a-z]{2,})\.(\d{4})(@alumnos\.urjc\.es)|([a-z]{1,})\.([a-z]{2,})(@urjc\.es)\\b')
 a=input()
 emails=p.findall(a)
 print(emails)
@@ -59,22 +59,22 @@ for email in emails:
         print("alumno "+email[1]+" matriculado en "+email[2])
     else:
         print("profesor "+email[4]+" apellido "+ email[5])"""
-
-#Ejer 5
-
-p=re.compile('(C/|Calle)\s([A-ZÑÁÉÍÓÚ][a-zñíéáóüú]{0,}),?\s*(Nº|N|n|nº|)\s?([0-9]{1,}),\s*([0-9]{5})([^0-9]|$)')
+"""
+import re
+p=re.compile('\\b(C\/|Calle)\s([A-ZÑÁÉÍÓÚ][a-zñíéáóüú]+\\b),?\s*(Nº|N|n|nº|)\s*(\d{1,}),\s*(\d{5})\\b')
 a=input()
 directions=p.findall(a)
 #print(directions)
 for dir in directions:
-    print(dir[4]+"-"+dir[1]+"-"+dir[3])
+    print(dir[4]+"-"+dir[1]+"-"+dir[3])"""
 
-"""#Ejer 6
+#Ejer 6
 
 #p=re.compile('\s([A-Z]*)\s\d*\s[-]{3}\s[\[]([a-z]{0,})[\]]\s[a-zA-Z]{0,}\s[:]\s([.]{0,})')
-p=re.compile('([A-Z]+)\s.+[\[]([a-z]+)[\]]\s.+[][\.]([a-zA-Z]+)\s*[:]\s(.+)')
+p=re.compile('(\w+)(?:\s+\d+ --- )\[(\w+)\]\s+(?:\w+\.){0,}(\w+)\s+:\s+(.*)')
+
 a=input()
 logs=p.findall(a)
 #print(logs)
 for log in logs:
-   print('"'+log[0]+'","'+log[1]+'","'+log[2]+'","'+log[3]+'"')"""
+   print('"'+log[0]+'","'+log[1]+'","'+log[2]+'","'+log[3]+'"')
