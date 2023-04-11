@@ -1,5 +1,5 @@
 import re
-pattern="\\b([a-z]{1,})\.([a-z]{2,})(?:\.)?(\d{4})?\@(alumnos\.)?(urjc.es)\\b"
+pattern="\\b([a-z]{1,})\.([a-z]{2,})(?:\.)?(\d{4})?\@(alumnos\.)?(urjc\.es)\\b"
 result=re.findall(pattern, input())
 
 for r in result:
